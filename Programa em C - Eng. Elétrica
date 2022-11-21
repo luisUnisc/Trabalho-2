@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int i,j,x,total;
+int matriz[107][107];
+
+int main()
+{
+    x = -2;
+    total = 0;
+
+    printf("   Nome   | Matricula | Somatorio ");
+    printf("\n   Luis   |   95138   |   26 ");
+    printf("\n Ezequiel |   96898   |   40 ");
+    printf("\n Henrique |   97997   |   41 ");
+    printf("\n\n Matriz: 107x107\n Aresta: 9\n Preenchimento: 1");
+    printf("\n\n Curso: Engenharia Eletrica");
+    printf("\n Forma: Torre de Rede de Alta tensao sobre concreto (Triangulos+retangulo)\n\n");
+
+    for(i =0;i<=107;i++){
+        for(j=0;j<=107;j++){
+            //Desenho do triangulo 1
+            if(((i>=2)&(i<=26))&((j>=(56-x))&(j<=(57+x)))){
+                matriz[i][j]=1;
+                total +=1;
+            }
+            if(i==29){
+                x=0;
+            }
+            //Desenho do triangulo 2
+            if(((i>=29)&(i<=53))&((j>=(56-x))&(j<=(57+x)))){
+                matriz[i][j]=1;
+                total+=1;
+            }
+            if(i==56){
+                x=0;
+            }
+            //Desenho do triangulo 3
+            if(((i>=56)&(i<=80))&((j>=(56-x))&(j<=(57+x)))){
+                matriz[i][j]=1;
+                total+=1;
+            }
+            //Desenho do retangulo
+            if((i>=87)&(i<=99)&(j>=17)&(j<=96)){
+                matriz[i][j]=1;
+                total+=1;
+            }
+        }
+        x+=1;
+    }
+    for(i=0;i<=107;i++){
+        for(j=0;j<=107;j++){
+            printf("%d",matriz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\nSomatorio dos numeros que preenchem a forma desenhada: %d", total);
+    printf("\n\n");
+}
