@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int i,j,x,total;
+int matriz[50][50];
+
+int main()
+{
+    total = 0;
+
+    printf("   Nome   | Matricula | Somatorio ");
+    printf("\n Anderson |   78911   |   26 ");
+    printf("\n  Kevin   |   73518   |   24 ");
+    printf("\n\n Matriz: 50x50\n Aresta: 9\n Preenchimento: 1");
+    printf("\n\n Curso: Engenharia Mecanica");
+    printf("\n Forma: Carro (Retângulos+Quadrados)\n\n");
+
+    for(i =0;i<50;i++){
+        for(j=0;j<50;j++){
+            //Desenho da capota
+            if((i>=7)&(i<=15)&(j>=13)&(j<=37)){
+                matriz[i][j]=1;
+                total+=1;
+            }
+            //Desenho do corpo
+            if((i>=17)&(i<=31)&(j>=3)&(j<=47)){
+                matriz[i][j]=1;
+                total+=1;
+            }
+             //Desenho das rodas
+            if((i>=33)&(i<=41)){
+                //Desenho da roda 1
+                if ((j>=10)&(j<=18)){
+                    matriz[i][j]=1;
+                    total+=1;
+                }
+                //Desenho da roda 2
+                if ((j>=32)&(j<=40)){
+                    matriz[i][j]=1;
+                    total+=1;
+                }
+            }
+        }
+    }
+    for(i=0;i<50;i++){
+        for(j=0;j<50;j++){
+            printf("%d",matriz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\nSomatorio dos numeros que preenchem a forma desenhada: %d", total);
+    printf("\n\n");
+}
