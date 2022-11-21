@@ -1,0 +1,47 @@
+
+def main():
+    x = -2
+    total = 0
+    print("   Nome   | Matricula | Somatorio ")
+    print("   Luis   |   95138   |   26 ")
+    print(" Ezequiel |   96898   |   40 ")
+    print(" Henrique |   97997   |   41 ")
+    print(" Matriz: 107x107\n Aresta: 9\n Preenchimento: 1")
+    print(" Curso: Engenharia Eletrica")
+    print(" Forma: Torre de Rede de Alta tensao sobre concreto (Triangulos+retangulo)\n")
+
+    matriz = []
+    for i in range(107):
+        matriz.append([0]*107)
+        
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            matriz[1][1] = 1
+            #Desenho do triangulo 1
+            if ((i>=2) and (i<=26)) and ((j>=(56-x)) and (j<=(57+x))):
+                matriz[i][j] = 1
+                total += 1
+            if i == 29:
+                x = 0
+            #Desenho do triangulo 2
+            if((i>=29) and (i<=53)) and ((j>=(56-x)) and (j<=(57+x))):
+                matriz[i][j] = 1
+                total+=1
+            if i == 56:
+                x = 0
+            #Desenho do triangulo 3
+            if ((i>=56) and (i<=80)) and ((j>=(56-x)) and (j<=(57+x))):
+                matriz[i][j] = 1
+                total+=1
+            #Desenho do retangulo
+            if ((i>=87) and (i<=99)) and ((j>=17) and (j<=96)):
+                matriz[i][j] = 1
+                total += 1
+        x+=1
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            print(matriz[i][j], end='')
+        print()
+    print("\nSomatorio dos numeros que preenchem a forma desenhada: ", total);
+    print(); 
+main()
