@@ -1,0 +1,41 @@
+
+def main():
+    total = 0
+    print("   Nome   | Matricula | Somatorio ")
+    print(" Anderson |   78911   |   26 ")
+    print("  Kevin   |   73518   |   24 ")
+    print(" Matriz: 50x50\n Aresta: 9\n Preenchimento: 1")
+    print(" Curso: Engenharia Mecanica")
+    print(" Forma: Carro (Retângulos+Quadrados)\n")
+
+    matriz = []
+    for i in range(50):
+        matriz.append([0]*50)
+        
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            #Desenho da capota
+            if ((i>=7) and (i<=15) and (j>=13) and (j<=37)):
+                matriz[i][j] = 1
+                total += 1
+            #Desenho do corpo
+            if((i>=17) and (i<=31) and (j>=3) and (j<=47)):
+                matriz[i][j] = 1
+                total += 1
+            #Desenho das rodas
+            if((i>=33) and (i<=41)):
+                #Desenho da roda 1
+                if ((j>=10) and (j<=18)):
+                    matriz[i][j] = 1
+                    total += 1
+                #Desenho da roda 2
+                if ((j>=32) and (j<=40)):
+                    matriz[i][j] = 1
+                    total += 1
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            print(matriz[i][j], end='')
+        print()
+    print("\nSomatorio dos numeros que preenchem a forma desenhada: ", total);
+    print(); 
+main()
